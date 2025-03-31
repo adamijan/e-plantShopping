@@ -11,22 +11,18 @@ const CartItem = ({ onUpdateCart, onContinueShopping }) => {
   const calculateTotalAmount = () => {
     let total = 0;
     cart.forEach(item => {
-      total += item.quantity * parseFloat(item.cost.substring(1));
+       total += item.quantity * parseFloat(item.cost.substring(1));
     });
     return total;
   };
 
   const handleContinueShopping = (e) => {
-    onContinueShopping(e); // Call the function passed from the parent component
-  };
-
-  const handleCheckoutShopping = (e) => {
-    alert('Functionality under construction');
+     onContinueShopping(e); 
   };
 
   const handleIncrement = (item) => {
     dispatch(updateQuantity({ name: item.name, quantity: item.quantity + 1 }));
-  };
+ };
 
   const handleDecrement = (item) => {
     if (item.quantity > 1) {
@@ -42,7 +38,14 @@ const CartItem = ({ onUpdateCart, onContinueShopping }) => {
 
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
-    return item.quantity * parseFloat(item.cost.substring(1));
+   // return item.quantity * parseFloat(item.cost.substring(1));
+   let subtotal = 0;
+   subtotal += item.quantity * parseFloat(item.cost.substring(1));
+   return subtotal;
+  };
+
+  const handleCheckoutShopping = (e) => {
+    alert('Functionality to be added for future reference');
   };
 
   return (
